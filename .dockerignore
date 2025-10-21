@@ -1,0 +1,6 @@
+.git
+bin
+docs
+ci
+deploy
+.env

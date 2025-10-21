@@ -1,0 +1,6 @@
+bin/
+.idea/
+kiam.test
+mem.out
+coverage.txt
+.env
