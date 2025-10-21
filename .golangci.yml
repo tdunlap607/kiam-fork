@@ -10,7 +10,6 @@ linters-settings:
     min-occurrences: 2
 
 linters:
-  disable-all: true
   enable:
     - errcheck
     - govet
@@ -20,6 +19,8 @@ linters:
     - gosimple
     - gofmt
     - goimports
+  disable:
+    - typecheck
 
 run:
   timeout: 5m
