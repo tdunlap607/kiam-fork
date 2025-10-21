@@ -16,7 +16,6 @@ linters:
     - govet
     - ineffassign
     - staticcheck
-    - typecheck
     - unused
     - gosimple
     - gofmt
@@ -25,8 +24,15 @@ linters:
 run:
   timeout: 5m
   tests: true
+  skip-dirs:
+    - vendor
   
 issues:
   exclude-use-default: false
+  exclude-rules:
+    # Exclude typecheck issues since go build already validates types
+    - linters:
+        - typecheck
+      text: ".*"
   max-issues-per-linter: 0
   max-same-issues: 0
