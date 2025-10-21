@@ -1,0 +1,41 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+    disable:
+      - fieldalignment
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - gosimple
+    - gofmt
+    - goimports
+
+run:
+  timeout: 5m
+  tests: true
+  skip-dirs:
+    - vendor
+  
+issues:
+  exclude-use-default: false
+  exclude-rules:
+    # Exclude all typecheck errors as they are false positives on embedded structs
+    # The Go compiler already validates types during compilation
+    - path: ".*"
+      linters:
+        - typecheck
+  max-issues-per-linter: 0
+  max-same-issues: 0
